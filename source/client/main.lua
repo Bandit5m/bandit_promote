@@ -1,0 +1,2 @@
+TriggerEvent('chat:addSuggestion', Config.Advertisement.Command, 'Sends an business advertisement to all players.', { { name = 'message', help = 'The message you want to send to everyone\'s phone.' } })
+TriggerEvent('chat:addSuggestion', Config.Alert.Command, 'Sends an Amber Alert to all players.', { { name = 'message', help = 'The message you want to send to everyone\'s phone.' } })
