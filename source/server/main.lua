@@ -15,13 +15,13 @@ function CheckJob(source, type)
 
     if type == 'promote' then
         for _, promote in pairs(Config.Advertisement.Jobs) do
-            if Player.job.name == promote.job then
+            if xPlayer.job.name == promote.job then
                 return true
             end
         end
     elseif type == 'alert' then
         for _, alert in pairs(Config.Alert.Jobs) do
-            if Player.job.name == alert.job then
+            if xPlayer.job.name == alert.job then
                 return true
             end
         end
@@ -35,13 +35,13 @@ function CheckGrade(source, type)
 
     if type == 'promote' then
         for _, promote in pairs(Config.Advertisement.Jobs) do
-            if Player.job.grade == promote.grade then
+            if xPlayer.job.grade == promote.grade then
                 return true
             end
         end
     elseif type == 'alert' then
         for _, alert in pairs(Config.Alert.Jobs) do
-            if Player.job.grade == alert.grade then
+            if xPlayer.job.grade == alert.grade then
                 return true
             end
         end
@@ -67,15 +67,15 @@ function Integration(source, message)
     local Username = GetPlayerName(source);
 
     if Config.Advertisement.Integration.Birdy then
-        return exports['lb-phone']:NotifyEveryone('online', { app = 'Twitter', title = Username .. ' - ' .. Player.job.label, content = message })
+        return exports['lb-phone']:NotifyEveryone('online', { app = 'Twitter', title = Username .. ' - ' .. xPlayer.job.label, content = message })
     elseif Config.Advertisement.Integration.InstaPic then
-        return exports['lb-phone']:NotifyEveryone('online', { app = 'Instagram', title = Username .. ' - ' .. Player.job.label, content = message })
+        return exports['lb-phone']:NotifyEveryone('online', { app = 'Instagram', title = Username .. ' - ' .. xPlayer.job.label, content = message })
     elseif Config.Advertisement.Integration.Pages then
-        return exports['lb-phone']:NotifyEveryone('online', { app = 'YellowPages', title = Username .. ' - ' .. Player.job.label, content = message })
+        return exports['lb-phone']:NotifyEveryone('online', { app = 'YellowPages', title = Username .. ' - ' .. xPlayer.job.label, content = message })
     elseif Config.Advertisement.Integration.MarketPlace then
-        return exports['lb-phone']:NotifyEveryone('online', { app = 'MarketPlace', title = Username .. ' - ' .. Player.job.label, content = message })
+        return exports['lb-phone']:NotifyEveryone('online', { app = 'MarketPlace', title = Username .. ' - ' .. xPlayer.job.label, content = message })
     elseif Config.Advertisement.Integration.Mail then
-        return exports['lb-phone']:NotifyEveryone('online', { app = 'Mail', title = Username .. ' - ' .. Player.job.label, content = message })
+        return exports['lb-phone']:NotifyEveryone('online', { app = 'Mail', title = Username .. ' - ' .. xPlayer.job.label, content = message })
     end
 end
 
@@ -116,9 +116,9 @@ RegisterCommand(Config.Advertisement.Command, function(source, args, rawCommand)
     end
 
     if Config.Advertisement.Notify == 'ox_lib' then
-        return TriggerClientEvent('bandit_bridge:client:notification', -1, Config.Strings.advert_title .. ' - ' .. Player.job.label, Username .. '\n\n' .. Config.Strings.job_title .. Player.job.label .. '\n' .. '- ' .. message, 'rectangle-ad', 'warning')
+        return TriggerClientEvent('bandit_bridge:client:notification', -1, Config.Strings.advert_title .. ' - ' .. xPlayer.job.label, Username .. '\n\n' .. Config.Strings.job_title .. xPlayer.job.label .. '\n' .. '- ' .. message, 'rectangle-ad', 'warning')
     elseif Config.Advertisement.Notify == 'chat' then
-        return TriggerClientEvent('chat:addMessage', -1, { template = '<div class="chat-message"> <span style="color: #179b03">[Advertisement] {0} ({1}): {2}</div>', args = { Username, Player.job.label, message } })
+        return TriggerClientEvent('chat:addMessage', -1, { template = '<div class="chat-message"> <span style="color: #179b03">[Advertisement] {0} ({1}): {2}</div>', args = { Username, xPlayer.job.label, message } })
     end
 
     return Integration(source, message)

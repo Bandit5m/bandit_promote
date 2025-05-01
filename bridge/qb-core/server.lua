@@ -9,7 +9,7 @@ end
 function GetPlayerName(source)
     local xPlayer = GetPlayer(source)
 
-    return Player.Functions.GetName();
+    return xPlayer.Functions.GetName();
 end
 
 --
@@ -18,11 +18,11 @@ end
 function GetAccount(source, account)
     local xPlayer = GetPlayer(source)
 
-    return Player.Functions.GetMoney(account)
+    return xPlayer.Functions.GetMoney(account)
 end
 
 function RemoveAccountMoney(source, account, money)
     local xPlayer = GetPlayer(source)
 
-    return Player.Functions.RemoveMoney(account, money)
+    return xPlayer.Functions.RemoveMoney(account, money)
 end
