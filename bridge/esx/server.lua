@@ -7,7 +7,7 @@ function GetPlayer(source)
 end
 
 function GetPlayerName(source)
-    local Player = GetPlayer(source)
+    local xPlayer = GetPlayer(source)
 
     return Player.getName();
 end
@@ -16,13 +16,13 @@ end
 -- Money Functions
 --
 function GetAccount(source, account)
-    local Player = GetPlayer(source)
+    local xPlayer = GetPlayer(source)
 
     return Player.getAccount(account)
 end
 
 function RemoveAccountMoney(source, account, money)
-    local Player = GetPlayer(source)
+    local xPlayer = GetPlayer(source)
 
     return Player.removeAccountMoney(account, money)
 end

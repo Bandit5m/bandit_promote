@@ -11,7 +11,7 @@ function CheckMessage(source, message)
 end
 
 function CheckJob(source, type)
-    local Player = GetPlayer(source);
+    local xPlayer = GetPlayer(source);
 
     if type == 'promote' then
         for _, promote in pairs(Config.Advertisement.Jobs) do
@@ -31,7 +31,7 @@ function CheckJob(source, type)
 end
 
 function CheckGrade(source, type)
-    local Player = GetPlayer(source);
+    local xPlayer = GetPlayer(source);
 
     if type == 'promote' then
         for _, promote in pairs(Config.Advertisement.Jobs) do
@@ -51,7 +51,7 @@ function CheckGrade(source, type)
 end
 
 function CheckCash(source, account, amount)
-    local Player = GetPlayer(source);
+    local xPlayer = GetPlayer(source);
     local Account = GetAccount(source, account).money
 
     if Account >= amount then
@@ -63,7 +63,7 @@ function CheckCash(source, account, amount)
 end
 
 function Integration(source, message)
-    local Player = GetPlayer(source);
+    local xPlayer = GetPlayer(source);
     local Username = GetPlayerName(source);
 
     if Config.Advertisement.Integration.Birdy then
@@ -80,7 +80,7 @@ function Integration(source, message)
 end
 
 RegisterCommand(Config.Advertisement.Command, function(source, args, rawCommand)
-    local Player = GetPlayer(source);
+    local xPlayer = GetPlayer(source);
     local Account = GetAccount(source, 'money').money
     local Username = GetPlayerName(source);
     local message = table.concat(args, ' ');
@@ -125,7 +125,7 @@ RegisterCommand(Config.Advertisement.Command, function(source, args, rawCommand)
 end)
 
 RegisterCommand(Config.Alert.Command, function(source, args, rawCommand)
-    local Player = GetPlayer(source);
+    local xPlayer = GetPlayer(source);
     local message = table.concat(args, ' ');
 
     if GlobalState.Cooldown then

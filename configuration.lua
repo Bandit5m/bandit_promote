@@ -66,3 +66,5 @@ Config = {
         })
     end
 }
+
+return Config
